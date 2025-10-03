@@ -72,4 +72,31 @@ import('./pages/campuses/delcarmen/delcarmen.page').then(m => m.delcarmenPage) }
 m.MainitPage) }, 
 { path: 'campuses/malimono', loadComponent: () => 
 import('./pages/campuses/malimono/malimono.page').then(m => m.MalimonoPage) },
-]; 
+  {
+    path: 'association',
+    loadComponent: () => import('./pages/alumni/association/association.page').then( m => m.AssociationPage)
+  },
+  {
+    path: 'events',
+    loadComponent: () => import('./pages/alumni/events/events.page').then( m => m.EventsPage)
+  },
+  {
+    path: 'directory',
+    loadComponent: () => import('./pages/alumni/directory/directory.page').then( m => m.DirectoryPage)
+  },
+
+
+ 
+
+ 
+  // ✅ Alumni Pages 
+  { path: 'alumni', loadComponent: () => 
+import('./pages/alumni/alumni.page').then(m => m.AlumniPage) }, 
+  { path: 'alumni/association', loadComponent: () => 
+import('./pages/alumni/association/association.page').then(m => 
+m.AssociationPage) }, 
+  { path: 'alumni/events', loadComponent: () => 
+import('./pages/alumni/events/events.page').then(m => m.EventsPage) }, 
+  { path: 'alumni/directory', loadComponent: () => 
+import('./pages/alumni/directory/directory.page').then(m => m.DirectoryPage) }, 
+];
