@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [ 
   { 
     path: '', 
-    redirectTo: 'folder/id', 
+    redirectTo: 'home', 
     pathMatch: 'full', 
   }, 
   {path: 'folder/:id', 

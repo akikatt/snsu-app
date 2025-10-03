@@ -1,20 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-
-@Component({
-  selector: 'app-administration',
-  templateUrl: './administration.page.html',
-  styleUrls: ['./administration.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
-})
-export class AdministrationPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+import { Component } from '@angular/core'; 
+import { IonicModule } from '@ionic/angular'; 
+import { CommonModule } from '@angular/common'; 
+import { RouterModule } from '@angular/router'; 
+import { peopleOutline, documentOutline, personOutline, peopleCircleOutline, manOutline } from 
+'ionicons/icons'; 
+ 
+@Component({selector: 'app-administration', 
+standalone: true,   
+imports: [IonicModule, CommonModule, RouterModule],   
+templateUrl: './administration.page.html', 
+styleUrls: ['./administration.page.scss'], 
+}) 
+export class AdministrationPage { 
+icons = { peopleOutline, documentOutline, personOutline, peopleCircleOutline, manOutline };  
+// ✅ Define icons 
+} 
