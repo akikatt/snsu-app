@@ -1,0 +1,17 @@
+ion-list { 
+    margin-bottom: 20px; 
+  } 
+   
+  ion-item { 
+    --background: #222; /* Darker background for better contrast */ 
+    border-radius: 8px; 
+  } 
+ 
+  ion-menu-button::part(icon) { 
+  color: white; 
+} 
+ 
+ion-back-button::part(icon) { 
+  color: white; 
+} 
+ 
