@@ -49,5 +49,27 @@ loadComponent: () => import('./home/home.page').then( m => m.HomePage)
     path: 'campuses',
     loadComponent: () => import('./pages/campuses/campuses.page').then( m => m.CampusesPage)
   },
-
+  {
+    path: 'delcarmen',
+    loadComponent: () => import('./pages/campuses/delcarmen/delcarmen.page').then( m => m.delcarmenPage)
+  },
+  {
+    path: 'mainit',
+    loadComponent: () => import('./pages/campuses/mainit/mainit.page').then( m => m.MainitPage)
+  },
+  {
+    path: 'malimono',
+    loadComponent: () => import('./pages/campuses/malimono/malimono.page').then( m => m.MalimonoPage)
+  },
+  
+// ✅ Main "Campuses" page 
+{ path: 'campuses', loadComponent: () => import('./pages/campuses/campuses.page').then(m => 
+m.CampusesPage) }, 
+// ✅ Subpages under " Campuses" Pages 
+{ path: 'campuses/delcarmen', loadComponent: () => 
+import('./pages/campuses/delcarmen/delcarmen.page').then(m => m.delcarmenPage) }, 
+{ path: 'campuses/mainit', loadComponent: () => import('./pages/campuses/mainit/mainit.page').then(m => 
+m.MainitPage) }, 
+{ path: 'campuses/malimono', loadComponent: () => 
+import('./pages/campuses/malimono/malimono.page').then(m => m.MalimonoPage) },
 ]; 
