@@ -98,5 +98,17 @@ m.AssociationPage) },
   { path: 'alumni/events', loadComponent: () => 
 import('./pages/alumni/events/events.page').then(m => m.EventsPage) }, 
   { path: 'alumni/directory', loadComponent: () => 
-import('./pages/alumni/directory/directory.page').then(m => m.DirectoryPage) }, 
+import('./pages/alumni/directory/directory.page').then(m => m.DirectoryPage) },   {
+    path: 'login',
+    loadComponent: () => import('./pages/auth/login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'signup',
+    loadComponent: () => import('./pages/auth/signup/signup.page').then( m => m.SignupPage)
+  },
+  {
+    path: 'logout',
+    loadComponent: () => import('./pages/auth/logout/logout.page').then( m => m.LogoutPage)
+  },
+
 ];
