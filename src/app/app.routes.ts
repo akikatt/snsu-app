@@ -1,114 +1,143 @@
-import { Routes } from '@angular/router'; 
- 
-export const routes: Routes = [ 
-  { 
-    path: '', 
-    redirectTo: 'home', 
-    pathMatch: 'full', 
-  }, 
-  {path: 'folder/:id', 
-loadComponent: () => 
-import('./folder/folder.page').then((m) => m.FolderPage), 
-}, 
-{ 
-path: 'home', 
-loadComponent: () => import('./home/home.page').then( m => m.HomePage) 
-},   {
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'folder/:id',
+    loadComponent: () =>
+      import('./folder/folder.page').then((m) => m.FolderPage),
+  },
+  {
+    path: 'home',
+    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+  },
+  {
     path: 'the-school',
-    loadComponent: () => import('./pages/the-school/the-school.page').then( m => m.TheSchoolPage)
+    loadComponent: () =>
+      import('./pages/the-school/the-school.page').then((m) => m.TheSchoolPage),
   },
   {
     path: 'administration',
-    loadComponent: () => import('./pages/administration/administration.page').then( m => m.AdministrationPage)
+    loadComponent: () =>
+      import('./pages/administration/administration.page').then(
+        (m) => m.AdministrationPage
+      ),
   },
   {
     path: 'academics',
-    loadComponent: () => import('./pages/academics/academics.page').then( m => m.AcademicsPage)
+    loadComponent: () =>
+      import('./pages/academics/academics.page').then((m) => m.AcademicsPage),
   },
   {
     path: 'faculty',
-    loadComponent: () => import('./pages/faculty/faculty.page').then( m => m.FacultyPage)
+    loadComponent: () =>
+      import('./pages/faculty/faculty.page').then((m) => m.FacultyPage),
   },
   {
     path: 'students',
-    loadComponent: () => import('./pages/students/students.page').then( m => m.StudentsPage)
+    loadComponent: () =>
+      import('./pages/students/students.page').then((m) => m.StudentsPage),
   },
   {
     path: 'rie',
-    loadComponent: () => import('./pages/rie/rie.page').then( m => m.RiePage)
+    loadComponent: () => import('./pages/rie/rie.page').then((m) => m.RiePage),
   },
   {
     path: 'library',
-    loadComponent: () => import('./pages/library/library.page').then( m => m.LibraryPage)
+    loadComponent: () =>
+      import('./pages/library/library.page').then((m) => m.LibraryPage),
   },
   {
     path: 'alumni',
-    loadComponent: () => import('./pages/alumni/alumni.page').then( m => m.AlumniPage)
+    loadComponent: () =>
+      import('./pages/alumni/alumni.page').then((m) => m.AlumniPage),
   },
   {
     path: 'campuses',
-    loadComponent: () => import('./pages/campuses/campuses.page').then( m => m.CampusesPage)
+    loadComponent: () =>
+      import('./pages/campuses/campuses.page').then((m) => m.CampusesPage),
   },
   {
-    path: 'delcarmen',
-    loadComponent: () => import('./pages/campuses/delcarmen/delcarmen.page').then( m => m.delcarmenPage)
+    path: 'campuses/delcarmen',
+    loadComponent: () =>
+      import('./pages/campuses/delcarmen/delcarmen.page').then(
+        (m) => m.delcarmenPage
+      ),
   },
   {
-    path: 'mainit',
-    loadComponent: () => import('./pages/campuses/mainit/mainit.page').then( m => m.MainitPage)
+    path: 'campuses/mainit',
+    loadComponent: () =>
+      import('./pages/campuses/mainit/mainit.page').then((m) => m.MainitPage),
   },
   {
-    path: 'malimono',
-    loadComponent: () => import('./pages/campuses/malimono/malimono.page').then( m => m.MalimonoPage)
+    path: 'campuses/malimono',
+    loadComponent: () =>
+      import('./pages/campuses/malimono/malimono.page').then(
+        (m) => m.MalimonoPage
+      ),
   },
-  
-// ✅ Main "Campuses" page 
-{ path: 'campuses', loadComponent: () => import('./pages/campuses/campuses.page').then(m => 
-m.CampusesPage) }, 
-// ✅ Subpages under " Campuses" Pages 
-{ path: 'campuses/delcarmen', loadComponent: () => 
-import('./pages/campuses/delcarmen/delcarmen.page').then(m => m.delcarmenPage) }, 
-{ path: 'campuses/mainit', loadComponent: () => import('./pages/campuses/mainit/mainit.page').then(m => 
-m.MainitPage) }, 
-{ path: 'campuses/malimono', loadComponent: () => 
-import('./pages/campuses/malimono/malimono.page').then(m => m.MalimonoPage) },
   {
     path: 'association',
-    loadComponent: () => import('./pages/alumni/association/association.page').then( m => m.AssociationPage)
+    loadComponent: () =>
+      import('./pages/alumni/association/association.page').then(
+        (m) => m.AssociationPage
+      ),
   },
   {
     path: 'events',
-    loadComponent: () => import('./pages/alumni/events/events.page').then( m => m.EventsPage)
+    loadComponent: () =>
+      import('./pages/alumni/events/events.page').then((m) => m.EventsPage),
   },
   {
     path: 'directory',
-    loadComponent: () => import('./pages/alumni/directory/directory.page').then( m => m.DirectoryPage)
+    loadComponent: () =>
+      import('./pages/alumni/directory/directory.page').then(
+        (m) => m.DirectoryPage
+      ),
   },
 
-
- 
-
- 
-  // ✅ Alumni Pages 
-  { path: 'alumni', loadComponent: () => 
-import('./pages/alumni/alumni.page').then(m => m.AlumniPage) }, 
-  { path: 'alumni/association', loadComponent: () => 
-import('./pages/alumni/association/association.page').then(m => 
-m.AssociationPage) }, 
-  { path: 'alumni/events', loadComponent: () => 
-import('./pages/alumni/events/events.page').then(m => m.EventsPage) }, 
-  { path: 'alumni/directory', loadComponent: () => 
-import('./pages/alumni/directory/directory.page').then(m => m.DirectoryPage) },   {
+  // ✅ Alumni Pages
+  {
+    path: 'alumni',
+    loadComponent: () =>
+      import('./pages/alumni/alumni.page').then((m) => m.AlumniPage),
+  },
+  {
+    path: 'alumni/association',
+    loadComponent: () =>
+      import('./pages/alumni/association/association.page').then(
+        (m) => m.AssociationPage
+      ),
+  },
+  {
+    path: 'alumni/events',
+    loadComponent: () =>
+      import('./pages/alumni/events/events.page').then((m) => m.EventsPage),
+  },
+  {
+    path: 'alumni/directory',
+    loadComponent: () =>
+      import('./pages/alumni/directory/directory.page').then(
+        (m) => m.DirectoryPage
+      ),
+  },
+  {
     path: 'login',
-    loadComponent: () => import('./pages/auth/login/login.page').then( m => m.LoginPage)
+    loadComponent: () =>
+      import('./pages/auth/login/login.page').then((m) => m.LoginPage),
   },
   {
     path: 'signup',
-    loadComponent: () => import('./pages/auth/signup/signup.page').then( m => m.SignupPage)
+    loadComponent: () =>
+      import('./pages/auth/signup/signup.page').then((m) => m.SignupPage),
   },
   {
     path: 'logout',
-    loadComponent: () => import('./pages/auth/logout/logout.page').then( m => m.LogoutPage)
+    loadComponent: () =>
+      import('./pages/auth/logout/logout.page').then((m) => m.LogoutPage),
   },
-
 ];

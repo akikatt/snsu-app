@@ -59,7 +59,7 @@ export class SignupPage {
       addIcons({personOutline,mailOutline,lockClosedOutline});} 
  
   signup() { 
-    this.http.post('http://localhost/snsu_sample/register.php', { 
+    this.http.post('http://localhost/devapp/register.php', { 
       full_name: this.full_name, 
       email: this.email, 
       password: this.password 

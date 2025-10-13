@@ -1,19 +1,69 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import {
   IonContent,
   IonHeader,
   IonTitle,
   IonToolbar,
   IonButtons,
-  IonMenuButton, IonBackButton, IonCol, IonImg, IonCard, IonGrid, IonRow, IonIcon, IonCardHeader, IonCardTitle, IonCardContent, IonButton } from '@ionic/angular/standalone';
+  IonMenuButton,
+  IonBackButton,
+  IonCol,
+  IonImg,
+  IonCard,
+  IonGrid,
+  IonRow,
+  IonIcon,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonButton,
+} from '@ionic/angular/standalone';
+
+import { addIcons } from 'ionicons';
+import {
+  school,
+  people,
+  book,
+  peopleCircle,
+  person,
+  flask,
+  library,
+  ribbon,
+  business,
+} from 'ionicons/icons';
+
+// Add icons for IonIcon usage
+addIcons({
+school,
+people,
+book,
+peopleCircle, // Keep this one, remove the duplicate
+person,
+flask,
+library,
+ribbon,
+business,
+});
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonButton, IonCardContent, IonCardTitle, IonCardHeader, IonIcon, IonRow, IonGrid, IonCard, IonImg, IonCol, IonBackButton, 
+  imports: [
+    IonButton,
+    IonCardContent,
+    IonCardTitle,
+    IonCardHeader,
+    IonIcon,
+    IonRow,
+    IonGrid,
+    IonCard,
+    IonImg,
+    IonCol,
+    IonBackButton,
     IonButtons,
     IonContent,
     IonHeader,
@@ -22,6 +72,7 @@ import {
     CommonModule,
     FormsModule,
     IonMenuButton,
+    RouterLink
   ],
 })
 export class HomePage implements OnInit {
