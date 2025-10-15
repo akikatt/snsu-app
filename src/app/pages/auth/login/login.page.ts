@@ -12,7 +12,7 @@ import {
 } from '@ionic/angular/standalone';
 // Importing Ionicons for usage in the app
 import { addIcons } from 'ionicons';
-import { lockClosedOutline, personOutline } from 'ionicons/icons';
+import { lockClosedOutline, mailOutline, personOutline } from 'ionicons/icons';
 addIcons({
   lockClosedOutline,
   personOutline,
@@ -35,10 +35,13 @@ addIcons({
   ],
 })
 export class LoginPage {
-  email = '';
+   email = '';
   password = '';
   rememberMe = false;
-  constructor(private http: HttpClient, private router: Router) {}
+  // Replace with your InfinityFree site URL (no trailing slash), e.g. https://yoursite.infinityfreeapp.com
+  apiBase = 'https://citraframework.pythonanywhere.com';
+  constructor(private http: HttpClient, private router: Router) {
+      addIcons({mailOutline,lockClosedOutline});}
   ngOnInit() {
     const savedEmail = localStorage.getItem('rememberedEmail');
     if (savedEmail) {
@@ -47,19 +50,14 @@ export class LoginPage {
     }
   }
   login() {
-    if (!this.email || !this.password) {
-      alert('Please enter both email and password');
-      return;
-    }
-    this.http
-      .post('http://localhost/devapp/login.php', {
-        email: this.email,
-        password: this.password,
-      })
+    const payload = { email: this.email?.trim(), password: this.password };
+    this.http.post(`${this.apiBase}/login`, payload)
       .subscribe(
         (response: any) => {
-          if (response.message === 'Login successful') {
-            localStorage.setItem('user', JSON.stringify(response.user));
+          // Accept either a { message: 'Login successful', user } or { success: true, user }
+          if (response?.message === 'Login successful' || response?.success) {
+            const user = response.user ?? response.data ?? null;
+            if (user) localStorage.setItem('user', JSON.stringify(user));
             alert('Login Successful');
             this.router.navigate(['/home']);
             if (this.rememberMe) {
@@ -68,7 +66,7 @@ export class LoginPage {
               localStorage.removeItem('rememberedEmail');
             }
           } else {
-            alert('Invalid Email or Password');
+            alert(response?.error || 'Invalid Email or Password');
           }
         },
         (error) => {

@@ -6,10 +6,13 @@
     </ion-buttons>
     <!-- Back Icon -->
     <ion-buttons slot="end">
-      <ion-back-button
-        defaultHref="home"
-        class="white-back-button"
-      ></ion-back-button>
+      <ion-button
+        fill="clear"
+        (click)="isLogged ? logout() : loginPage()"
+        style="color: white"
+      >
+        {{ isLogged ? 'Logout' : 'Login' }}
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
   <!-- Header Image -->

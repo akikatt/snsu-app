@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+
 import {
   IonContent,
   IonHeader,
@@ -9,7 +12,6 @@ import {
   IonToolbar,
   IonButtons,
   IonMenuButton,
-  IonBackButton,
   IonCol,
   IonImg,
   IonCard,
@@ -63,7 +65,6 @@ business,
     IonCard,
     IonImg,
     IonCol,
-    IonBackButton,
     IonButtons,
     IonContent,
     IonHeader,
@@ -72,42 +73,71 @@ business,
     CommonModule,
     FormsModule,
     IonMenuButton,
-    RouterLink
+    RouterLink,
+    RouterModule
   ],
 })
 export class HomePage implements OnInit {
-  constructor() {}
+  //constructor() {}
   // Declare a private WebSocket property for real-time communication
-  private socket!: WebSocket;
+  //private socket!: WebSocket;
   // Lifecycle hook that runs when the component/page is initialized
-  ngOnInit() {
+  //ngOnInit() {
     // ✅ Establish connection to the WebSocket server
-    this.socket = new WebSocket('ws://localhost:8080');
+    //this.socket = new WebSocket('ws://localhost:8080');
     // ✅ Triggered when WebSocket successfully connects
-    this.socket.onopen = () => {
-      console.log('🟢 WebSocket connected');
+    //this.socket.onopen = () => {
+      //console.log('🟢 WebSocket connected');
       // Send a greeting message to the server (for testing)
-      this.socket.send('Hello from client!');
-    };
+     //this.socket.send('Hello from client!');
+    //};
     // ✅ Triggered when a message is received from the server
-    this.socket.onmessage = (event) => {
-      console.log('📨 Message from server:', event.data);
-    };
+    //this.socket.onmessage = (event) => {
+      //console.log('📨 Message from server:', event.data);
+    //};
     // ✅ Triggered when there's an error in the WebSocket connection
-    this.socket.onerror = (error) => {
-      console.error('❌ WebSocket error:', error);
-    };
+    //this.socket.onerror = (error) => {
+      //console.error('❌ WebSocket error:', error);
+    //};
     // ✅ Triggered when the WebSocket connection is closed
-    this.socket.onclose = () => {
-      console.log('🔌 WebSocket disconnected');
-    };
-  }
+    //this.socket.onclose = () => {
+      //console.log('🔌 WebSocket disconnected');
+    //};
+  //}
 
-  logout() {
-    console.log('User logged out');
+  //logout() {
+    //console.log('User logged out');
     // Add your logout logic here, like clearing session, tokens, etc.
     // Example: this.authService.logout();
     // Navigate to login page if necessary:
     // this.router.navigate(['/login']);
+  //}
+
+
+
+  // private socket
+  //private socket!: WebSocket;
+
+  constructor(private router: Router) {
+    // Add icons here
+    // No need to add icons again here as it's already done in the global addIcons call
+      addIcons({school,people,book,peopleCircle,person,flask,library,ribbon,business});
+  }
+  ngOnInit() {
+   
+  }
+
+  get isLogged(): boolean {
+    return !!localStorage.getItem('user');
+  }
+
+  logout() {
+    localStorage.removeItem('user')
+    this.router.navigate(['/login']);
+  }
+
+  // Define the logout method
+  loginPage() {
+    this.router.navigate(['/login']);
   }
 }
